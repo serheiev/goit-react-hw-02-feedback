@@ -27,14 +27,13 @@ export class App extends Component {
   positivePercentage = (good, bad, neutral) => {
     let total = good + bad + neutral;
     let positiveFB = Math.round((good / total) * 100);
-    if (isNaN(positiveFB)) {
-      return positiveFB;
-    }
-    return positiveFB + '%';
+    return positiveFB;
   };
 
   render() {
     const { good, neutral, bad } = this.state;
+    const showStat = good > 0 || neutral > 0 || bad > 0;
+    const noStatMessage = 'No feedback given ';
 
     return (
       <Section title="Please leave feedback">
@@ -48,22 +47,28 @@ export class App extends Component {
           Bad
         </Button>
 
-        <Statistics title="Statistics">
-          <StatisticsItem text="Good" rating={good}></StatisticsItem>
+        {showStat ? (
+          <Statistics title="Statistics">
+            <StatisticsItem text="Good" rating={good}></StatisticsItem>
 
-          <StatisticsItem text="Neutral" rating={neutral}></StatisticsItem>
+            <StatisticsItem text="Neutral" rating={neutral}></StatisticsItem>
 
-          <StatisticsItem text="Bad" rating={bad}></StatisticsItem>
+            <StatisticsItem text="Bad" rating={bad}></StatisticsItem>
 
-          <StatisticsItem
-            text="Total"
-            rating={this.totalRate(good, bad, neutral)}
-          ></StatisticsItem>
-          <StatisticsItem
-            text="Positive feedback"
-            rating={this.positivePercentage(good, bad, neutral) || 0}
-          ></StatisticsItem>
-        </Statistics>
+            <StatisticsItem
+              text="Total"
+              rating={this.totalRate(good, bad, neutral)}
+            ></StatisticsItem>
+            <StatisticsItem
+              text="Positive feedback"
+              rating={this.positivePercentage(good, bad, neutral)}
+            >
+              %
+            </StatisticsItem>
+          </Statistics>
+        ) : (
+          <Statistics title="Statistics">{noStatMessage}</Statistics>
+        )}
       </Section>
     );
   }

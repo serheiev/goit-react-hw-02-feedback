@@ -1,8 +1,19 @@
+import PropTypes from 'prop-types';
+import {
+  StatisticBlock,
+  StatisticTitle,
+  StatisticList,
+} from './Statistics.styled';
+
 export const Statistics = ({ title, children }) => {
   return (
-    <>
-      <h3>{title}</h3>
-      <ul>{children}</ul>
-    </>
+    <StatisticBlock>
+      <StatisticTitle>{title}</StatisticTitle>
+      <StatisticList>{children}</StatisticList>
+    </StatisticBlock>
   );
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
 };

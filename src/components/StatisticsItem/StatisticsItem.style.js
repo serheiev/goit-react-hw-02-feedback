@@ -1,24 +1,10 @@
-// plusNeutral = () => {
-//   this.setState(prevState => {
-//     return {
-//       neutral: prevState.neutral + 1,
-//     };
-//   });
-// };
-// plusBad = () => {
-//   this.setState(prevState => {
-//     return {
-//       bad: prevState.bad + 1,
-//     };
-//   });
-// };
+import styled from 'styled-components';
 
-// plusBad={this.plusBad}
-
-// name="bad"
-
-// plusNeutral={this.plusNeutral}
-
-// name="neutral"
-
-// name="good"
+export const StatisticItem = styled.li`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+`;
+export const Span = styled.span`
+  color: #007acc;
+`;
