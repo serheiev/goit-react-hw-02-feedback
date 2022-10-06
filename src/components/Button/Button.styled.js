@@ -9,4 +9,9 @@ export const Btn = styled.button`
   color: #fff;
   letter-spacing: 0.1em;
   font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background-color: #24d0d6;
+  }
 `;
