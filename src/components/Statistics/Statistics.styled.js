@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const StatisticBlock = styled.div``;
-export const StatisticTitle = styled.h3`
-  font-size: 26px;
-`;
 export const StatisticList = styled.ul`
   list-style: none;
   padding: 0;
@@ -11,3 +7,5 @@ export const StatisticList = styled.ul`
   font-size: 24px;
   font-weight: 600;
 `;
+
+export const StatisticItem = styled.li``;
